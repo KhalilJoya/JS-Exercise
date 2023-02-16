@@ -11,7 +11,7 @@
     <button id="btn1" onclick="start()">Start</button>
     <button id="btn2" onclick="stop()">Stop</button><br> -->
     <script>
-        /* 
+        /*
         1. ek number lena hai.
         -> kya number odd hai ?
         -> agar odd hai to kya 7 ka multiple hai ?
@@ -39,20 +39,20 @@
         || operator Short circuiting
     */
         //Using if else
-        let num1 = 31;
-        let num2 = 100;
-        if (num1 % 2 === 0) {
-            console.log(num2);
+        let num111 = 31;
+        let num222 = 100;
+        if (num111 % 2 === 0) {
+            console.log(num222);
         } else {
-            console.log(num1);
+            console.log(num111);
         }
 
         //Using ternary operator
         num1 % 2 === 0 ? console.log(num2) : console.log(num1);
 
         //Using Short Circuting
-        let ans = num1 % 2 === 0 || num1;
-        if (ans === num1) {
+        let ans11 = num1 % 2 === 0 || num1;
+        if (ans11 === num1) {
             console.log(num1);
         } else {
             console.log(num2);
@@ -275,7 +275,7 @@
         let arr = [1, 2, 3, 4, 1, 2, 3, 1, 2, 3, 2, 2, 2, 1, 5, 6, 7, 4, 1];
         let map = new Map();
         let max = 1;
-        let num = 0;
+        let num00 = 0;
         for (let key of arr) {
             let value = map.get(key);
             if (value) {
@@ -283,14 +283,14 @@
                 map.set(key, newValue);
                 if (max < newValue) {
                     max = newValue;
-                    num = key;
+                    num00 = key;
                 }
             } else {
                 map.set(key, 1);
             }
         }
         console.log(map);
-        console.log(`Number ${num} total ${max} bar repeat hoa hai`);
+        console.log(`Number ${num00} total ${max} bar repeat hoa hai`);
 
 
 
@@ -462,7 +462,7 @@
         }
 
 
-        // 1. 3 ki table for, while and do while loop 
+        // 1. 3 ki table for, while and do while loop
         // for loop
         for (let i = 1; i <= 10; i++) {
             console.log(`3 * ${i} = ${3 * i}`)
@@ -652,8 +652,8 @@
 
 
         // 12.
-        let str1 = "abaBa";
-        let strLowerCase = str1.toLowerCase();
+        let str12 = "abaBa";
+        let strLowerCase = str12.toLowerCase();
         let rev = "";
         let strArr = [...strLowerCase];
         for (let i = strArr.length - 1; i >= 0; i--) {
@@ -1017,6 +1017,390 @@
             console.log(max)
         }
         max3(123, 122, 200)
+
+
+        // Q1.add, minus, mul, divide ye 4 functions bnane hai using arrow function and also without return
+        const add = (num1, num2) => num1 + num2;
+        console.log(add(20, 20))
+
+        const minus = (num1, num2) => num1 - num2;
+        console.log(minus(40, 30))
+
+        const mul = (num1, num2) => num1 * num2;
+        console.log(mul(50, 50))
+
+        const divide = (num1, num2) => num1 / num2;
+        console.log(divide(10, 10))
+
+
+        // Q2. calculator, function expression me bnana hai. Prompt me tume operation puchna
+        //     hai. operation jaise add, divide, +, -, plus, minus fir usse 2 numbers puchne hain aur
+        //     operation kran hai
+        const calculator = function () {
+            let opertor = prompt("What operation do you want to do with two number");
+            let num1 = +prompt("Enter first number");
+            let num2 = +prompt("Enter second number");
+            if (opertor === "+" || opertor === "plus") {
+                console.log(num1 + num2)
+            } else if (opertor === "-" || opertor === "minus") {
+                console.log(Math.abs(num1 - num2))
+            } else if (opertor === "*" || opertor === "multipal") {
+                console.log(num1 * num2)
+            } else if (opertor === "/" || opertor === "divide") {
+                console.log(num1 / num2)
+            } else {
+                console.log("Not a operator")
+            }
+        }
+        calculator();
+
+
+        // Q3. function slice, ek string pass krni hai. ek starting indexedDB, 2nd end index,
+        //     aur fir vo slice krke vo string return krni hai. agar index galat di hai to error print
+        //     krni hai using console.error
+        function slice(str, start, end) {
+            if (start >= 0 && str.length >= end) {
+                return str.substring(start, end);
+            } else {
+                console.error("Sorry Incorrect index")
+            }
+        }
+        console.log(slice("Wecode Academy", 0, 14))
+
+
+        // Q4. function repeat, first argument ek string pass krni hai. 2nd argument me number
+        // pass krna hai. di gyi string ko 1 se leke number tak repeat krvana hai using loop.
+        // repeat function ka use ni krna hai. khud ka repeat function bnana hai
+        const repeat = function (str, num) {
+            for (let i = 1; i <= num; i++) {
+                let str1 = "";
+                for (let j = 1; j <= i; j++) {
+                    str1 += str
+                }
+                console.log(str1)
+            }
+        }
+        repeat("Hello ", 10)
+
+
+        // Q5.
+        // function concat, 5 string deni hai arugments me aur un 5 string ko concat krke
+        // return krna hai using arrow function
+        const concat = (...str) => {
+            let conStr = '';
+            for (let val of str) {
+                conStr += val
+            }
+            return conStr;
+        }
+        console.log(concat("Hello ", "my ", "name ", "is ", "Khalil Khan"));
+
+
+        // Q6. padStart and padEnd function ko khudse bnana hai without using string function.
+        // function padding(start, end, str, sym, num) {}
+        // padding(true, false, "Wecode", "*", 5);
+        // *** Wecode
+        // padding(false, true, "Sajid", "**", 5);
+        // Wecode ****
+        function addPadding(start, end, str, sym, num) {
+            let strSym = "";
+            if (start) {
+                for (let i = 1; i <= num; i++) {
+                    strSym += sym;
+                }
+                return strSym.concat(str);
+            } else if (end) {
+                for (let i = 1; i <= num; i++) {
+                    strSym += sym;
+                }
+                return str.concat(strSym);
+            }
+        }
+        console.log(addPadding(true, false, "Wecode", "*", 5));
+
+
+        // Q7. function printPyramid(str, num, rev) {}
+        // printPyramid("*", 5, false);
+        // *
+        // **
+        // ***
+        // ****
+        // *****
+        const printPattern = function (str, num, rev) {
+            if (num > 0 && rev) {
+                for (let i = 1; i <= num; i++) {
+                    console.log(str.repeat(i))
+                }
+            } else if (num > 0 && !rev) {
+                for (let i = 1; i <= num; i++) {
+                    console.log(str.repeat(i))
+                }
+            }
+        }
+        printPattern("*", 5, true)
+
+
+        // Q.8 printPyramid("wecode", 5, true);
+        // wecodewecodewecodewecodewecode
+        // wecodewecodewecodewecode
+        // wecodewecodewecode
+        // wecodewecode
+        // wecode
+        const printPatter = function (str, num, rev) {
+            if (num > 0 && rev) {
+                for (let i = num; i >= 1; i--) {
+                    console.log(str.repeat(i))
+                }
+            } else if (num > 0 && !rev) {
+                for (let i = 1; i <= num; i++) {
+                    console.log(str.repeat(i))
+                }
+            }
+        }
+        printPatter("wecode", 10, true)
+
+
+        // Q9. function game()
+        //   user se name puchna hai.then user ka mobile number puchan hai, then user se birthyear puchni
+        //   hai.agar user ki age 18 + ho ri hai to usse 3 question puchne hai.Agar vo 3 question ke answer
+        //   shi deta hia to Congratulations otherwise Sorry you  have lost the game show krnaa hai using
+        //   alert box age user ki age 18 se kam hai to message show kro "You are not allowed to play the game."
+        function game() {
+            let name = prompt("What is your name")
+            if (name) {
+                let number = prompt("What is your mobile number")
+                if (number) {
+                    if (number.length === 10) {
+                        if (Number(number)) {
+                            let DOB = Number(prompt("What is your birthyear"))
+                            const currentYear = new Date().getFullYear();
+                            const age = Math.abs(DOB - currentYear)
+                            if (age >= 18) {
+                                let flag = false;
+                                let Q1 = prompt("How much 20 / 2");
+                                if (Q1 === "10") {
+                                    flag = true;
+                                    Q1 = prompt("How much 2000 + 10000 - 8000");
+                                }
+                                if (Q1 === "4000" && flag) {
+                                    flag = true;
+                                    Q1 = +prompt("How much 2 * 2");
+                                }
+                                if (Q1 === 4 && flag) {
+                                    console.log(`Congratulation ${name} for winner the game`)
+                                } else {
+                                    console.log(`Sorry ${name} you  have lost the game `)
+                                }
+                            } else {
+                                console.log("You are not allowed to play the game.")
+                            }
+                        } else {
+                            console.error("please enter only number ")
+                        }
+                    } else {
+                        console.error("please enter number only 10 digit")
+                    }
+                } else {
+                    console.error("enter your mobile number")
+                }
+
+            } else {
+                console.error("please enter your name")
+            }
+        }
+        game()
+
+
+        // Q10. Create Bill Calculator
+        // Ask below Questions
+        // How many french fries(60rs per piece) do you want to order ?
+        // How many burgers(50rs per piece) do you want to order ?
+        // How many plates of chowmin(100rs per plate) do you want to order ?
+        // How many plates of Manchurian(80rs per plate) do you want to order ?
+        // How many Cokes(50 per piece) do you want to order ?
+        // Use can enter any number of quantities.Calculate the bill based on the quantities
+        // entered and item prices.If user enteres 0 or negative value then consider item count as 0.
+        let howMuchItem = 0;
+        let userOrder = false;
+        while (!userOrder) {
+            userOrder = +prompt(`How to order
+             1.How many french fries (60rs per piece) do you want to order ?
+             2.How many burgers (50rs per piece) do you want to order ?
+             3.How many plates of chowmin (100rs per plate) do you want to order?
+             4.How many plates of Manchurian (80rs per plate) do you want to order?
+             5.How many Cokes (50 per piece) do you want to order ?
+             6.Exit`)
+            if (userOrder <= 5 && userOrder) {
+                howMuchItem = +prompt("How many do you want to order")
+            }
+        }
+        console.log(howMuchItem)
+        if (userOrder === 1) {
+            console.log(`Your bill ${60 * howMuchItem}`)
+        } else if (userOrder === 2) {
+            console.log(`Your bill ${50 * howMuchItem}`);
+        } else if (userOrder === 3) {
+            console.log(`Your bill ${100 * howMuchItem}`);
+        } else if (userOrder === 4) {
+            console.log(`Your bill ${80 * howMuchItem}`);
+        } else if (userOrder === 5) {
+            console.log(`Your bill ${50 * howMuchItem}`);
+        } else {
+            console.log(0)
+        }
+
+
+        // Q11.
+        // Print below Pattern
+        // $##$##$
+        // $##$##
+        // $##$
+        // $##
+        // $
+
+        let dol = "$";
+        let hash = "##";
+        for (let i = 5; i >= 1; i--) {
+            let dolHash = "";
+            for (let j = 1; j <= i; j++) {
+                if (j % 2 !== 0) {
+                    dolHash += dol;
+                } else if (j % 2 === 0) {
+                    dolHash += hash;
+                }
+            }
+            console.log(dolHash);
+        }
+
+        // Q12.
+        // Ask the user question "How many times do you want to print Series".Then print below
+        // series.For example below series will print if user enteres 5
+        // 2, 6, 30, 260, 3130 Find the pattern for above series and print accordingly.If the user
+        // enters 10 then we will print the same series numbers till 10 times.
+        let ans = ""
+        for (let i = 1; i <= 10; i++) {
+            ans = i ** i + i
+            console.log(ans)
+        }
+
+
+        // Q13. Using a switch case to do this exercise
+        // If number is odd then print Odd
+        // If number is even then print Even
+        // If number is 100 then print 100
+        // Else print 10000
+        let num = 100;
+        switch (num % 2 === 0) {
+            case false:
+                console.log("Odd");
+                break;
+            case true:
+                console.log("Even");
+                break;
+            case num === 100:
+                console.log("100")
+                break;
+            default:
+                console.log(10000)
+                break;
+        }
+
+        // Q14. Ask user his/her birth year, "What is your birth year?"
+        // If user age is greater than 18 then ask user "Do you have valid license number?"
+        // If user click on Okay then ask for his license number and finally in the alert show
+        // message "User with license number #### is ready to drive."
+        // If user age is less than 18 then ask him question in confirm box "Do you have gaurdians ?
+        // "" If user says yes then ask his/her Gaurdian name and then in alert show "You are ready
+        // to drive with your ####(show gaurdian name here.)" Else show "Sorry visit again please."
+        // in alert box
+        let currentYear = new Date().getFullYear();
+        let userDofB = +prompt("Enter your Date of Brith");
+        let userAge = Math.abs(currentYear - userDofB);
+
+        if (userAge > 18) {
+            let userAns = confirm("Do you have valid license number ?");
+            if (userAns) {
+                let licenseNumber = +prompt("Enter your valid license");
+                if (licenseNumber) {
+                    alert(`User with license number ${licenseNumber} is ready to drive.`)
+                } else {
+                    alert("Enter licinse number")
+                }
+            }
+        } else {
+            let gaurdianCheck = confirm("Do you have gaurdians ?");
+            if (gaurdianCheck) {
+                let gaurdianName = prompt("Enter your gaurdian name");
+                alert(`You are ready to drive with your gaurdian ${gaurdianName}`);
+            } else {
+                alert("Sorry visit again please.")
+            }
+        }
+
+        // Q15. Take any number and take other number as 19. Now check their difference by
+        // subtracting each other. If both numbers difference is greater than 19 then print
+        // triple their absolute difference else print double their absolute difference.
+        let num1 = 10;
+        let num2 = 19;
+        if (Math.abs(num1 - num2) > 19) {
+            console.log(Math.abs(num1 - num2) * 3);
+        } else {
+            console.log(Math.abs(num1 - num2) * 2);
+        }
+
+        // Q16. Write a JavaScript program to check from two given integers, whether one is
+        // positive and another one is negative.If yes then print sum of both the numbers
+        // Else print multiplication of both numbers
+        let num3 = 20;
+        let num4 = -10;
+        if (num3 < 0 && num4 > 0 || num4 < 0 && num3 > 0) {
+            console.log(Math.abs(num3 + num4));
+        } else {
+            console.log(Math.abs(num3 * num4));
+        }
+
+        // Q17. Write a JavaScript program to check if out of 4 numbers any two numbers are
+        // same or not. If yes then print Yes else print No.
+        let num5 = 10;
+        let num6 = 190;
+        let num7 = 99;
+        let num8 = 10;
+        if (num5 === num6 || num6 === num7 || num7 === num8 || num8 === num5 || num7 === num5 || num8 === num6) {
+            console.log("Yes")
+        } else {
+            console.log(num5, num6, num7, num8)
+        }
+
+        // Q18. Write a program to check if a number is palindrome or not. It means 141 and
+        // 12221 both are examples of palindrome number. If number is palindrome then print
+        // yes else print no
+        let num9 = 12221;
+        let str = num9.toString();
+        let str1 = "";
+        for (let i = 1; i <= str.length; i++) {
+            str1 += str.at(-i)
+        }
+        Number(str) === +str1 ? console.log("Yes") : console.log("No")
+
+
+        // Q19. Take a String and check its length. If string length is greater than 10 then
+        // print from 1 to length of the string. else print No
+        let strr = "Wecode"
+        if (strr.length > 10) {
+            console.log(strr)
+        } else {
+            console.log("No")
+        }
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 
